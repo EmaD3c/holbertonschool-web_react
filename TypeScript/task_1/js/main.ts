@@ -4,7 +4,20 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience: number;
   location: string;
-  // [key: string]: any; // pouvoir ajouter des option siplementaires 
+  [key: string]: any; // pouvoir ajouter des option siplementaires 
+}
+
+interface Directors extends Teacher {
+  numberOfReports: number; // Nombre de rapports spécifiques aux directeurs
+}
+
+const Director1: Directors = {
+    firstName: 'John',
+    lastName: 'Doe',
+    location: 'London',
+    yearsOfExperience: 20,
+    fullTimeEmployee: true,
+    numberOfReports: 3,
 }
 
 const Teacher1: Teacher = {
@@ -13,7 +26,7 @@ const Teacher1: Teacher = {
   fullTimeEmployee: true,
   yearsOfExperience: 20,
   location: "Paris",
-  // contract: true,
+  contract: true,
 };
 
 
@@ -22,6 +35,7 @@ const TeacherList: Teacher[] = [Teacher1,];
 
 const showelement = document.createElement("pre") // afficher sur la page
 showelement.textContent = JSON.stringify(Teacher1, null, 2);
+showelement.textContent = JSON.stringify(Director1, null, 2);
 
 document.body.appendChild(showelement);
 
