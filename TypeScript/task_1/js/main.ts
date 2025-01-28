@@ -42,6 +42,28 @@ const printTeacher: printTeacher = (firstName, lastName) => {
 console.log(printTeacher("John", "Doe"));
 console.log(printTeacher(Teacher1.firstName, Teacher1.lastName)); // resultat voulu  : J. Soe
 
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
 
 // cree le tableau des students
 const TeacherList: Teacher[] = [Teacher1,];
